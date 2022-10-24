@@ -168,7 +168,7 @@
             "question": "被告人損害了什麼利益?",
 
             "id": "99-3",
-
+            
             "answers": {
                 "answer_start": [
                     238,
@@ -188,3 +188,37 @@
 ```
 
 ## 如何訓練模型
+
+### 環境架設
+安裝 Transformer 與 Question-Answering 需要的 Module
+
+```
+!git clone https://github.com/huggingface/transformers
+!cd transformers
+!pip install -r ./examples/requirements.txt
+!pip install ./transformers/
+!pip install -r ./transformers/examples/pytorch/question-answering/requirements.txt
+```
+
+### 訓練模型
+
+```
+!python ./transformers/examples/pytorch/question-answering/run_qa.py \
+  --model_name_or_path NchuNLP/Legal-Document-Question-Answering \
+  --train_file /data/train.json \
+  --test_file /data/test.json \
+  --do_train \
+  --do_predict \
+  --per_device_train_batch_size 12 \
+  --learning_rate 3e-5 \
+  --num_train_epochs 2 \
+  --max_seq_length 512 \
+  --doc_stride 128 \
+  --output_dir /Model/
+```
+
+### Evaluation
+訓練完模型後，會有 F1_Score 與 Exact Match 的分數，
+由於 Hugging Face 的預設 Evaluation Matrix 是基於英文的方式算分，因此在算中文 F1_Score 時，需要另外自己寫中文的算分方式。
+
+如何使用中文算分方式，我們有寫詳細的使用方法在 Evaluation 的檔案底下。
