@@ -186,6 +186,10 @@
 
 }
 ```
+## Copyright Notice 版權聲明
+
+本資料集整理、改編自司法院公開判決書資料。
+中興大學自然語言實驗室對於本資料集內容之正確性不為任何擔保，且不就因使用或倚賴本資料集而引致的任何損失，承擔任何責任。
 
 ## 如何訓練模型
 
@@ -222,3 +226,9 @@
 由於 Hugging Face 的預設 Evaluation Matrix 是基於英文的方式算分，因此在算中文 F1_Score 時，需要另外自己寫中文的算分方式。
 
 如何使用中文算分方式，我們有寫詳細的使用方法在 Evaluation 的檔案底下。
+
+## Contact us 聯繫我們
+
+- 實驗室網站 : <a href="https://nlpnchu.org/">自然語言處理實驗室 Natural Language Processing Lab</a>
+- Email : udiclab@email.nchu.edu.tw
+- Phone : <a href="tel:04-22840497#721" class="underline">04-22840497 #721</a>
